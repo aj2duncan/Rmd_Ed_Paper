@@ -58,7 +58,44 @@ One of the tools that can be used to satisfy both the change in statistics teach
 
 This article will outline some of the advantages and associated challenges in using R Markdown, and its extensions, in teaching statistics and data analysis.
 
-# R Markdown
+# Benefits of using R Markdown in the classroom
+
+One of the major benefits of using a system like R Markdown is that a student's work is contained within one document. It is no longer necessary to create graphs and import them into their write up. This applies to any subject where they have data analysis to present, it need not be limited to statistics. If the data is in an Excel spreadsheet (or similar) it can be imported into R and the plots created and displayed to the students as they continue to edit their report as seen in figure \@ref(fig:inline-plot).
+
+```{r inline-plot, echo = FALSE, eval = TRUE, fig.cap="An example of a plot appearing beside the code used to produce it."}
+knitr::include_graphics("images/Rmarkdown_example.png")
+``` 
+
+As mentioned earlier students can easily produce HTML files from R Markdown and there are several avenues through which these might be publised online for free[^3]. This can help the students take ownership of the work (@Bray2014). R Markdown can be used to build an entire website (an example can be found at [http://rmarkdown.rstudio.com/rmarkdown_websites.html](http://rmarkdown.rstudio.com/rmarkdown_websites.html)) or a blog (@blogdown_package, @blogdown_book). 
+
+By learning R and R Markdown students are learning an increasingly popular computing language. Not only is it increasingly taught at Universities but it is a popular requested skill in various industries (@Muenchen2017).
+
+
+# Benefits of using R Markdown as an educator
+
+## In Assessment or Submission
+
+Using R Markdown as a teacher/lecturer has several advantages compared to using, for example, Word and Excel, including for assessed or submitted work. If the student also submits the R Markdown document (and any associated data files if required) then, as when the student constructed it, the code used to create the results is right in the middle of the analysis. This makes marking easier and you can check whether the Word document they produced actually came from their R Markdown document, everything is reproducible (@Baumer2014).
+
+As the R Markdown document can produce a Word or PDF document, this can be passed onto other members of staff to make second marking easier. They need not necessarily consider the R Markdown document itself.
+
+## In Preparation of Materials
+
+Depending on whether you have used LaTeX previously you may already have an opinion on the Word equation editor or similar and how easy it is to insert (and reference) equations using them, compared to producing and referencing equations in LaTeX. However, it may also be necessary, for whatever reason, to create a word document, rather than a PDF. R Markdown allows the use of LaTeX equations and for referencing we can call on the bookdown package (@bookdown_package, @bookdown_book). 
+
+The bookdown package extends R Markdown and as the name suggests, it is designed to create books. By default the package will create an HTML book from a series of R Markdown documents. It can also create PDFs or several ebook formats, either in conjuction with the HTML (i.e. for download) or in isolation [@bookdown_book]. As with a single R Markdown file, if you wish to create a PDF a LaTeX distribution will need to be installed on the machine. 
+
+Aside from creating books, the bookdown package increases some of the capability of R Markdown and can be used for individual R Markdown files, this includes adding the capabilities to reference figures (produced by R or inserted as an image), tables and equations[^4]. Sections or chapters can also be referenced later in the document. To get started the author of the package has produced two templates. One is a basic book template, the other contains additional files to produce a PDF in the same format as the bookdown book (@bookdown_demo, @bookdown_demo_crc, @bookdown_book).
+
+One intention of bookdown is to allow public sharing with collaborative creation and editing of books (@bookdown_book). With that in mind several books have been created recently where either the publishers have allowed the online version to be available for free (@r4ds_book, @tidytext_book). There is also an introductory statistics book, available online, with the intention that it is reproduced and tweaked/extended by other teachers/lecturers (@moderndive_book). 
+
+Two further advantages of using R, but not specifically R Markdown, is the availability of data already nicely formatted and normally available as a package. Examples include the gapminder and fivethiryeight packages (@gapminder_package, @538_package). The community of R users can provide an enormous amount of help and lots of free resources both for staff and students. 
+
+## Examples of current use
+
+@Baumer2014 has examples of usage and student feedback from courses at Duke University and Smith College. Student feedback was encouraging and lack of prior knowledge of markdown did not hinder students. It is also used in many other University courses including [STAT 545A and 547M](http://stat545.com/) at the University of British Columbia. 
+
+# Using R Markdown
 
 One of the benefits of R is that the functionality provided by the normal "base" install can be extended by packages. These provide additional capabilities, are written by other users and like R itself are open source. One such package is the R Markdown package (@rmarkdown_package). The R Markdown package allows users to convert R Markdown documents into several other possible forms.
 
@@ -77,6 +114,7 @@ f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
 which can be referenced using `\@ref(eq:label)`.
 
 Once users have finished creating their R Markdown document they can **render**/**knit** [^1] it into, (amongst other formats) HTML, Word or PDF[^2].
+
 
 ## R Markdown Syntax
 
@@ -144,43 +182,6 @@ Lists can also be produced, but there but be a blank line between the previous p
   - item 3
 
 One point to note is that things will render slightly differently in the different output formats (HTML, Word and PDF) that are possible. 
-
-# Benefits of using R Markdown in the classroom
-
-One of the major benefits of using a system like R Markdown is that a student's work is contained within one document. It is no longer necessary to create graphs and import them into their write up. This applies to any subject where they have data analysis to present, it need not be limited to statistics. If the data is in an Excel spreadsheet (or similar) it can be imported into R and the plots created and displayed to the students as they continue to edit their report as seen in figure \@ref(fig:inline-plot).
-
-```{r inline-plot, echo = FALSE, eval = TRUE, fig.cap="An example of a plot appearing beside the code used to produce it."}
-knitr::include_graphics("images/Rmarkdown_example.png")
-``` 
-
-As mentioned earlier students can easily produce HTML files from R Markdown and there are several avenues through which these might be publised online for free[^3]. This can help the students take ownership of the work (@Bray2014). R Markdown can be used to build an entire website (an example can be found at [http://rmarkdown.rstudio.com/rmarkdown_websites.html](http://rmarkdown.rstudio.com/rmarkdown_websites.html)) or a blog (@blogdown_package, @blogdown_book). 
-
-By learning R and R Markdown students are learning an increasingly popular computing language. Not only is it increasingly taught at Universities but it is a popular requested skill in various industries (@Muenchen2017).
-
-
-# Benefits of using R Markdown as an educator
-
-## In Assessment or Submission
-
-Using R Markdown as a teacher/lecturer has several advantages compared to using, for example, Word and Excel, including for assessed or submitted work. If the student also submits the R Markdown document (and any associated data files if required) then, as when the student constructed it, the code used to create the results is right in the middle of the analysis. This makes marking easier and you can check whether the Word document they produced actually came from their R Markdown document, everything is reproducible (@Baumer2014).
-
-As the R Markdown document can produce a Word or PDF document, this can be passed onto other members of staff to make second marking easier. They need not necessarily consider the R Markdown document itself.
-
-## In Preparation of Materials
-
-Depending on whether you have used LaTeX previously you may already have an opinion on the Word equation editor or similar and how easy it is to insert (and reference) equations using them, compared to producing and referencing equations in LaTeX. However, it may also be necessary, for whatever reason, to create a word document, rather than a PDF. R Markdown allows the use of LaTeX equations and for referencing we can call on the bookdown package (@bookdown_package, @bookdown_book). 
-
-The bookdown package extends R Markdown and as the name suggests, it is designed to create books. By default the package will create an HTML book from a series of R Markdown documents. It can also create PDFs or several ebook formats, either in conjuction with the HTML (i.e. for download) or in isolation [@bookdown_book]. As with a single R Markdown file, if you wish to create a PDF a LaTeX distribution will need to be installed on the machine. 
-
-Aside from creating books, the bookdown package increases some of the capability of R Markdown and can be used for individual R Markdown files, this includes adding the capabilities to reference figures (produced by R or inserted as an image), tables and equations[^4]. Sections or chapters can also be referenced later in the document. To get started the author of the package has produced two templates. One is a basic book template, the other contains additional files to produce a PDF in the same format as the bookdown book (@bookdown_demo, @bookdown_demo_crc, @bookdown_book).
-
-One intention of bookdown is to allow public sharing with collaborative creation and editing of books (@bookdown_book). With that in mind several books have been created recently where either the publishers have allowed the online version to be available for free (@r4ds_book, @tidytext_book). There is also an introductory statistics book, available online, with the intention that it is reproduced and tweaked/extended by other teachers/lecturers (@moderndive_book). 
-
-Two further advantages of using R, but not specifically R Markdown, is the availability of data already nicely formatted and normally available as a package. Examples include the gapminder and fivethiryeight packages (@gapminder_package, @538_package). The community of R users can provide an enormous amount of help and lots of free resources both for staff and students. 
-
-# Examples of current use
-
-@Baumer2014 has examples of usage and student feedback from courses at Duke University and Smith College. Student feedback was encouraging and lack of prior knowledge of markdown did not hinder students. It is also used in many other University courses including [STAT 545A and 547M](http://stat545.com/) at the University of British Columbia. 
 
 # Difficulties of using R and R Markdown
 
