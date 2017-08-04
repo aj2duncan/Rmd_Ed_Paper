@@ -50,27 +50,27 @@ _**Email:** [andrew.duncan.ic@uhi.ac.uk](mailto:andrew.duncan.ic@uhi.ac.uk)_
 
 # Introduction
 
-Increasingly in recent times there has been a change of focus in teaching statistics in schools, colleges and universities. There is a movement toward using software and teaching students using data and case studies (@Baumer2014, @Bray2014, @Hicks2016, @Wang2017, @Wilson2016). This change is also apparent in the introduction of a new statistics unit at SCQF level 6 by the Scottish Qualifications Authority, developed with input from the University of Strathclyde (@SQA_level6). This unit requires students to complete linear regression and a basic hypothesis test using computer software and several examples of possible software options are provided in the support notes. 
+Increasingly in recent times there has been a change of focus in teaching statistics in schools, colleges and universities. There is a movement toward using software and teaching students using data and case studies (@Baumer2014, @Bray2014, @Hicks2016, @Wang2017, @Wilson2016). This change is also apparent in the introduction of a new statistics unit at SCQF level 6 by the Scottish Qualifications Authority, developed with input from the University of Strathclyde (@SQA_level6). This unit requires students to complete linear regression and a basic hypothesis test using computer software and several examples of possible software options are provided in the unit support notes. 
 
-Alongside this change in the teaching of statistics is an increasing desire in the scientific community for reproducible research. This is highlighted by the articles collated by Nature on the topic of reproducible research (@Nature_repro_special) and several books that have been published on the topic (for example - @Stodden2014). 
+Alongside this change in the teaching of statistics is an increasing desire in the scientific community for reproducible research. This is highlighted by the articles collated by Nature (@Nature_repro_special) and several books that have been published on the topic (for example - @Stodden2014). 
 
-One of the tools that can be used to satisfy both the change in statistics teaching whilst encouraging reproducible is the statistical software R (@baseR). R is an increasingly popular tool (@Muenchen2017) and widely taught in Universities (@Baumer2014). The integrated development environment RStudio (@RStudio) can be used to help with reproducible (@Gandrud2015) and personal experience has shown that it can help when introducing students to R. 
+One of the tools that can be used to satisfy both the change in statistics teaching whilst encouraging reproducible research is the statistical software R (@baseR). R is an increasingly popular tool (@Muenchen2017) and widely taught in Universities (@Baumer2014). The integrated development environment RStudio (@RStudio) can be used to help with reproducibility (@Gandrud2015) and personal experience has shown that it can help when introducing students to R. 
 
 One of the benefits of R is that the functionality provided by the normal "base" install can be extended by packages. These provide additional capabilities, are written by other users and like R itself are open source. One such package is the R Markdown package (@rmarkdown_package). This is one of the tools that can assist with reproducible research as it allows for the code needed for calculations and plots (and the results of these) to be integrated alongside plain text. This avoids the problem where the calculation of results is separated from the interpretation. The R Markdown package allows users to convert (render/knit[^1]) R Markdown documents into several other possible forms including HTML, Word or PDF[^2].
 
-An R Markdown document is based on the Markdown markup language (@markdown) which takes a plain text document and produces a HTML file. R Markdown uses the same syntax but allows users to include R code. use LaTeX syntax (@LaTeX) to create mathematical equations and [BibTeX](http://www.bibtex.org/) to add references. 
+An R Markdown document is based on the Markdown markup language (@markdown) which takes a plain text document and produces a HTML file. R Markdown uses the same syntax but allows users to include R code, use LaTeX syntax (@LaTeX) to create mathematical equations and [BibTeX](http://www.bibtex.org/) to add references. 
 
 This article will outline some of the advantages and associated challenges in using R Markdown, and its extensions, in teaching statistics and data analysis.
 
 # Benefits of using R Markdown in the classroom
 
-One of the major benefits of using a system like R Markdown is that a student's work is contained within one document. It is no longer necessary to create graphs and import them into their write up. This applies to any subject where they have data analysis to present, it need not be limited to statistics. If the data is in an Excel spreadsheet (or similar) it can be imported into R and the plots created and displayed to the students as they continue to edit their report as seen in figure \@ref(fig:inline-plot).
+One of the major benefits of using a system like R Markdown is that a student's work is contained within a single document. It is no longer necessary to create graphs separately and import them into their write up. This applies to any subject where data analysis is presented, it need not be limited to statistics. If the data is in an Excel spreadsheet (or similar) it can be imported into R and the plots created and displayed to the students as they continue to edit their report as seen in figure \@ref(fig:inline-plot).
 
-```{r inline-plot, echo = FALSE, eval = TRUE, fig.cap="An example of a plot appearing beside the code used to produce it."}
+```{r inline-plot, echo = FALSE, eval = TRUE, fig.cap="An example of a plot appearing beside both the code used to produce it and plain text. In this case it is taken from student notes rather than a submission."}
 knitr::include_graphics("images/Rmarkdown_example.png")
 ``` 
 
-As mentioned earlier students can easily produce HTML files from R Markdown and there are several avenues through which these might be published online for free[^3]. This can help the students take ownership of the work (@Bray2014). R Markdown can also be used to build an entire website (an example can be found at [http://rmarkdown.rstudio.com/rmarkdown_websites.html](http://rmarkdown.rstudio.com/rmarkdown_websites.html)) or a blog (@blogdown_package, @blogdown_book). 
+As mentioned earlier students can easily produce HTML files from R Markdown and there are several avenues through which these might be published online for free[^3]. This can help the students take ownership of the work (@Bray2014). R Markdown can also be used to build HTML presentations, an entire website (an example can be found at [http://rmarkdown.rstudio.com/rmarkdown_websites.html](http://rmarkdown.rstudio.com/rmarkdown_websites.html)) or a blog (@blogdown_package, @blogdown_book). 
 
 By learning R and R Markdown students are learning an increasingly popular computing language. Not only is it increasingly taught at Universities but it is on the rise as an industry requested skill for employees (@Muenchen2017).
 
@@ -79,17 +79,17 @@ By learning R and R Markdown students are learning an increasingly popular compu
 
 ## In Assessment or Submission
 
-Using R Markdown as a teacher/lecturer has several advantages compared to using, for example, Word and Excel, including for assessed or submitted work. If the student also submits the R Markdown document (and any associated data files if required) then, as when the student constructed it, the code used to create the results is right in the middle of the analysis. This makes marking easier and you can check whether the document they submitted was produced using their R Markdown document. Everything should be reproducible (@Baumer2014).
+Using R Markdown as a teacher/lecturer has several advantages compared to using, for example, Word and Excel, including for assessed or submitted work. If the student also submits the R Markdown document (and any associated data files if required) then, as when the student constructed it, the code used to create the results is right in the middle of the analysis. This makes marking easier and you can check whether the document submitted was produced using the corresponding R Markdown document. Everything should be reproducible (@Baumer2014).
 
 As the R Markdown document can produce a Word or PDF document, this can be passed onto other members of staff to make second marking easier. They need not necessarily consider the R Markdown document itself.
 
 ## In Preparation of Materials
 
-Depending on whether ythe reader has used LaTeX previously they may already have an opinion on the Word equation editor or similar and how easy it is to insert (and reference) equations using them, compared to producing and referencing equations in LaTeX. However, it may also be necessary, for whatever reason, to create a Word document, rather than a PDF. R Markdown allows the use of LaTeX equations whilst creating Word documents and for referencing we can call on the bookdown package (@bookdown_package, @bookdown_book). 
+Depending on whether the reader has used LaTeX previously they may already have an opinion on the Word equation editor (or similar) and how easy it is to insert (and reference) equations with it, compared to producing and referencing equations in LaTeX. Alternatively LaTeX users may need to create, for whatever reason, a Word document, rather than a PDF. R Markdown allows the use of LaTeX equations whilst creating Word documents and for referencing we can call on the bookdown package (@bookdown_book, @bookdown_package). 
 
-The bookdown package extends R Markdown and as the name suggests, is designed to create books. By default the package will create an HTML book from a series of R Markdown documents. It can also create PDFs or several eBook formats, either in conjunction with the HTML (i.e. for download) or in isolation [@bookdown_book]. As with a single R Markdown file, if you wish to create a PDF a LaTeX distribution will need to be installed on the machine. 
+The bookdown package extends R Markdown and as the name suggests, is designed to create books. By default the package will create an HTML book from a series of R Markdown documents. It can also create PDFs or several eBook formats, either in conjunction with the HTML (i.e. for download) or in isolation [@bookdown_book]. As with a single R Markdown file, if the output format is to be a PDF then a LaTeX distribution will need to be installed too. 
 
-Aside from creating books, the bookdown package increases some of the capability of R Markdown and can be used for individual R Markdown files, this includes adding the capabilities to reference figures (produced by R or inserted as an image), tables and equations[^4]. Sections or chapters can also be referenced later in the document. To get started the author of the package has produced two templates. One is a basic book template, the other contains additional files to produce a PDF in the same format as the bookdown book (@bookdown_demo, @bookdown_demo_crc, @bookdown_book).
+Aside from creating books, the bookdown package increases some of the capability of R Markdown and can be used for individual R Markdown files, this includes adding the capabilities to reference figures (produced by R or inserted as an image), tables and equations[^4]. Sections or chapters can also be referenced later in the document. To get started the author of the package has produced two templates. One is a basic book template, the other contains additional files to produce a PDF in the same format as the published guide to bookdown (@bookdown_demo, @bookdown_demo_crc, @bookdown_book).
 
 One intention of bookdown is to allow public sharing with collaborative creation and editing of books (@bookdown_book). With that in mind several books have been created recently where either the publishers have allowed the online version to be available for free (@r4ds_book, @tidytext_book). There is also an introductory statistics book, available online, with the intention that it is reproduced and tweaked/extended by other teachers/lecturers (@moderndive_book). 
 
@@ -117,11 +117,11 @@ Most simple inline formatting is available. For example:
 
 Ordered and unordered lists can also be produced but there must be a blank line between the previous paragraph and the list.
 
-The LaTeX syntax (@LaTeX) needed to create mathematical expressions is the normal single dollar signs `$x^2$` producing $x^2$ and two dollar symbols (e.g. `$$e^{i\pi} + 1 = 0 $$`) producing an equation. 
+The LaTeX syntax (@LaTeX) needed to create mathematical expressions is the normal single dollar signs `$x^2$` producing $x^2$ and two dollar symbols (e.g. `$$e^{i\pi} + 1 = 0$$`) producing an equation. 
 
-$$e^{i\pi} + 1 = 0 $$
+$$e^{i\pi} + 1 = 0$$
 
-If the equation needs to be numbered (and referenced) you can use the standard `\begin{equation}` and `\end{equation}` and add a label using `(\#eq:label)`. This could produce something like equation \@ref(eq:binom)
+If the equation needs to be numbered (and referenced) then the standard `\begin{equation}` and `\end{equation}` can be used with a label added using `(\#eq:label)`. This could produce something like equation \@ref(eq:binom)
 
 \begin{equation}
 f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
@@ -132,7 +132,7 @@ f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
 which can be referenced using `\@ref(eq:label)`.
 
 
-Although it is not necessary to include R code into an R Markdown document, inline R code is inserted using single backticks `` `r '\x60r 2 + 2\x60'` `` and multiple lines using a chunk. The chunk below will produce figure \@ref(fig:example-plot).
+Although it is not necessary to include R code into an R Markdown document, inline R code can be inserted using single backticks `` `r '\x60r 2 + 2\x60'` `` and multiple lines using a "chunk" wrapped in three backticks. The chunk below will produce figure \@ref(fig:example-plot).
 
 ```{r example-plot, verbatim = TRUE, fig.cap = "Example output plot"}
 library(tidyverse)
@@ -148,7 +148,7 @@ Certain elements of a document may render slightly differently in the different 
 
 # Difficulties of using R and R Markdown
 
-Using R and R Markdown is not without their difficulties too. They work best with both R and RStudio installed. Although RStudio is not strictly necessary the buttons available for render/knit and additional ease of use that RStudio provide students/staff with additional assistance. In addition to the two pieces of software every user will need access to the same packages. All of this needs to be in place before students can begin. RStudio make a server version of their software which is also open source and this may be of use to ensure that all students have the same packages installed. 
+Using R and R Markdown is not without their difficulties too. They work best with both R and RStudio installed. Although RStudio is not strictly necessary the buttons available for render/knit and additional ease of use that RStudio provide students/staff with extra assistance. In addition to the two pieces of software every user will need access to the same packages. All of this needs to be in place before students can begin. RStudio make a server version of their software which is also open source and this may be of use to ensure that all students have the same packages installed. 
 
 There is a recommendation to use template R Markdown documents (@Baumer2014) which personal experience supports. It allows students to get started and some help can be given by including the start of an R chunk or examples of LaTeX equations. 
 
