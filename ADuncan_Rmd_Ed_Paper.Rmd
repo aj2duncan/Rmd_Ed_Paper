@@ -107,7 +107,7 @@ Most simple inline formatting is available. For example:
 
    - `_italic_` or `*italic*` produces _italic_ or *italic*
   
-   - `__bold__` or `**italic**` produces __bold__ or **bold**
+   - `__bold__` or `**bold**` produces __bold__ or **bold**
   
    - `R^2^` provides superscript R^2^ with `R~2~` providing subscript R~2~
   
@@ -134,6 +134,7 @@ which can be referenced using `\@ref(eq:label)`.
 
 Although it is not necessary to include R code into an R Markdown document, inline R code can be inserted using single backticks `` `r '\x60r 2 + 2\x60'` `` and multiple lines using a "chunk" wrapped in three backticks. The chunk below will produce figure \@ref(fig:example-plot).
 
+
 ```{r example-plot, verbatim = TRUE, fig.cap = "Example output plot"}
 library(tidyverse)
 # create subset of data
@@ -142,6 +143,7 @@ diamonds = sample_n(diamonds, 10000)
 ggplot(diamonds, aes(x = carat, y = price)) +
   geom_point()
 ```
+
 
 Certain elements of a document may render slightly differently in the different output formats (HTML, Word and PDF). 
 
@@ -169,7 +171,7 @@ sessionInfo()
 
 # References
 
-[^1]: **knit** because the knitr package (@knitr_package) is used in the process of creating the documents and RStudio provides uses with a button to render/knit the document. 
+[^1]: **knit** because the knitr package (@knitr_package) is used in the process of creating the documents and RStudio provides users with a button to render/knit the document. 
 [^2]: To create a PDF file users need to have a LaTeX distribution installed. 
 [^3]: Examples include [https://rpubs.com](https://rpubs.com), [https://pages.github.com](https://pages.github.com) and [https://www.netlify.com](https://www.netlify.com). For students the easiest of these would be RPubs as everything can be done with no additional software and by pushing a button in RStudio.
 [^4]: Equation referencing works very well in PDF/HTML output but is a little fiddly in Microsoft Word. As seen in equation \@ref(eq:binom), it is perfectly possible though. 
